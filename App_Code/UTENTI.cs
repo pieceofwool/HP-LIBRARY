@@ -168,4 +168,29 @@ public class UTENTI
     }
 
     #endregion
+
+    #region UTILITY
+
+    /// <summary>
+    /// Recupera il codice utente di un utente
+    /// </summary>
+    /// <returns></returns>
+    public int RecuperaCodUtente()
+    {
+        SqlCommand cmd = new SqlCommand("UTENTI_GETCODUTENTE");
+        cmd.Parameters.AddWithValue("@email", email);
+
+        CONNESSIONE C = new CONNESSIONE();
+
+        return C.EseguiSelect(cmd).Rows[0].Field<int>("codUtente");
+    }
+
+    /// <summary>
+    /// Recupera il tipo utente di un eutente
+    /// </summary>
+    /// <param name="codUtente">L'ID dell'utente</param>
+    /// <returns></returns>
+    public string RecuperaTipoUtente(int codUtente) { return Select(codUtente).Rows[0].Field<string>("tipoUtente"); }
+
+    #endregion
 }
