@@ -25,6 +25,31 @@ public class LIBRI
 
     public LIBRI(int codLibro) { this.codLibro = codLibro; }
 
+    public LIBRI(int codLibro, int codUtente)
+    {
+        this.codLibro = codLibro;
+        this.codUtente = codUtente;
+    }
+
+    public LIBRI(string titolo, string autore, byte[] copertina, string genere, string sinossi)
+    {
+        this.titolo = titolo;
+        this.autore = autore;
+        this.copertina = copertina;
+        this.genere = genere;
+        this.sinossi = sinossi;
+    }
+
+    public LIBRI(int codLibro, string titolo, string autore, byte[] copertina, string genere, string sinossi)
+    {
+        this.codLibro = codLibro;
+        this.titolo = titolo;
+        this.autore = autore;
+        this.copertina = copertina;
+        this.genere = genere;
+        this.sinossi = sinossi;
+    }
+
     #endregion
 
     #region SELETTORI
@@ -84,7 +109,89 @@ public class LIBRI
 
     #region OPERATORI
 
+    /// <summary>
+    /// Inserisce un libro
+    /// </summary>
+    public void Insert()
+    {
+        SqlCommand cmd = new SqlCommand("LIBRI_INSERT");
+        cmd.Parameters.AddWithValue("@titolo", titolo);
+        cmd.Parameters.AddWithValue("@autore", autore);
+        cmd.Parameters.AddWithValue("@copertina", copertina);
+        cmd.Parameters.AddWithValue("@genere", genere);
+        cmd.Parameters.AddWithValue("@sinossi", sinossi);
 
+        CONNESSIONE conn = new CONNESSIONE();
+        conn.EseguiCmd(cmd);
+    }
+
+    /// <summary>
+    /// Aggiorna un libro
+    /// </summary>
+    public void Update()
+    {
+        SqlCommand cmd = new SqlCommand("LIBRI_UPDATE");
+        cmd.Parameters.AddWithValue("@codLibro", codLibro);
+        cmd.Parameters.AddWithValue("@titolo", titolo);
+        cmd.Parameters.AddWithValue("@autore", autore);
+        cmd.Parameters.AddWithValue("@copertina", copertina);
+        cmd.Parameters.AddWithValue("@genere", genere);
+        cmd.Parameters.AddWithValue("@sinossi", sinossi);
+
+        CONNESSIONE conn = new CONNESSIONE();
+        conn.EseguiCmd(cmd);
+    }
+
+    /// <summary>
+    /// Elimina un libro
+    /// </summary>
+    public void Delete()
+    {
+        SqlCommand cmd = new SqlCommand("LIBRI_DELETE");
+        cmd.Parameters.AddWithValue("@codLibro", codLibro);
+
+        CONNESSIONE conn = new CONNESSIONE();
+        conn.EseguiCmd(cmd);
+    }
+
+    #endregion
+
+    #region UTILITY
+
+    /// <summary>
+    /// Noleggia un libro all'utente specificato
+    /// </summary>
+    public void Noleggia()
+    {
+        SqlCommand cmd = new SqlCommand("LIBRI_NOLEGGIA");
+        cmd.Parameters.AddWithValue("@codLibro", codLibro);
+        cmd.Parameters.AddWithValue("@codUtente", codUtente);
+
+        CONNESSIONE conn = new CONNESSIONE();
+        conn.EseguiCmd(cmd);
+    }
+
+    /// <summary>
+    /// Restituisce un libro
+    /// </summary>
+    public void Restituisci()
+    {
+        SqlCommand cmd = new SqlCommand("LIBRI_RESTITUISCI");
+        cmd.Parameters.AddWithValue("@codLibro", codLibro);
+
+        CONNESSIONE conn = new CONNESSIONE();
+        conn.EseguiCmd(cmd);
+    }
+
+    /// <summary>
+    /// Determina se il libro è stato nolegiatto da più di 90 gg
+    /// </summary>
+    /// <returns></returns>
+    public bool InRitardo()
+    {
+        DateTime dataPrestito = Select(codLibro).Rows[0].Field<DateTime>("dataPrestito");
+        return (DateTime.Now - dataPrestito).Days > 90;
+    }
 
     #endregion
 }
