@@ -60,7 +60,7 @@
                     title: 'Elimina dati',
                     resizable: false,
                     width: 250,
-                    height: 280,
+                    height: 150,
                     overlay: {
                         opacity: 0.9,
                         background: 'black'
