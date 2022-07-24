@@ -81,6 +81,7 @@
     <asp:Button runat="server" Text="Inserisci Libro" ID="btnInserisci" ClientIDMode="Static" />
     <asp:Button runat="server" Text="Modifica Libro" ID="btnModifica" ClientIDMode="Static" Enabled="False" />
     <asp:Button runat="server" Text="Elimina Libro" ID="btnElimina" ClientIDMode="Static" Enabled="False" />
+    <asp:Button ID="btnAggiorna" runat="server" Text="Aggiorna Griglia" OnClick="btnAggiorna_Click" />
 
     <asp:GridView runat="server" ID="grdLibri" AutoGenerateColumns="False" DataKeyNames="codLibro" OnSelectedIndexChanged="grdLibri_SelectedIndexChanged">
         <Columns>

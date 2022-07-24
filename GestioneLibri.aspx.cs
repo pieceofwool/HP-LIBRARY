@@ -9,11 +9,7 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            grdLibri.DataSource = new LIBRI().Select();
-            grdLibri.DataBind();
-        }
+        if (!IsPostBack) CaricaGriglia();
     }
 
     protected void grdLibri_SelectedIndexChanged(object sender, EventArgs e)
@@ -22,5 +18,13 @@ public partial class _Default : System.Web.UI.Page
 
         btnModifica.Enabled = true;
         btnElimina.Enabled = true;
+    }
+
+    protected void btnAggiorna_Click(object sender, EventArgs e) { CaricaGriglia(); }
+
+    void CaricaGriglia()
+    {
+        grdLibri.DataSource = new LIBRI().Select();
+        grdLibri.DataBind();
     }
 }
