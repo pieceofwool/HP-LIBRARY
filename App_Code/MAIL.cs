@@ -30,7 +30,7 @@ public class MAIL
 
         //imposto la mail
         mail.Subject = "Conferma registrazione";
-        mail.Body = "Benvenuto! Ecco il tuo codice di conferma: " + rndCodice; // si può mettere html qui dentro
+        mail.Body = "Benvenuto! Ecco il tuo codice di conferma: " + rndCodice + "<br /> Per confermare la registrazione utilizza questo link: localhost:52258/registrazione_conferma.aspx?email=" + mailUtente; // si può mettere html qui dentro
         mail.IsBodyHtml = true;
         mail.To.Add(new MailAddress(mailUtente));
         mail.From = new MailAddress("doita05@setsistemi.it");

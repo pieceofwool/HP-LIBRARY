@@ -9,11 +9,6 @@ public partial class registrazione_conferma : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            ScriptManager.RegisterClientScriptBlock(this, GetType(), "ATTENZIONE", "alert('Controlla il tuo indirizzo di posta elettronica per recuperare il tuo codice provvisorio!')", true);
-            return;
-        }
     }
 
     protected void btnInvia_Click(object sender, EventArgs e)
@@ -25,15 +20,14 @@ public partial class registrazione_conferma : System.Web.UI.Page
             return;
         }
 
-        //mi salvo in una variabile l'email dell'utente e il codice random preso dalla pagina "registrazione"
-        string passwordTemp = Request.QueryString["rndCodice"].ToString();
         string email = Request.QueryString["email"].ToString();
 
         UTENTI u = new UTENTI();
         u.email = email;
+        u.password = CRYPTA.Crypta(txtRndCodice.Text);
 
         // se il codice corrisponde salvo nel DB la nuova pass e reindirizzo al login
-        if (CRYPTA.Crypta(txtRndCodice.Text.Trim()) == passwordTemp)
+        if (u.Login(false) == true)
         {
             string nuovaPassword = CRYPTA.Crypta(txtPassword.Text.Trim());
             u.password = nuovaPassword;

@@ -21,7 +21,7 @@ public partial class registrazione : System.Web.UI.Page
             return;
         }
 
-        // mi salvo la textbox come variabili
+        // mi salvo la textbox come variabile
         string mail = txtEmail.Text.Trim();
 
         UTENTI u = new UTENTI();
@@ -34,22 +34,32 @@ public partial class registrazione : System.Web.UI.Page
             return;
         }
 
-        // mando la mail di conferma all'indirizzo dell'utente con il codice di conferma generato casualmente
+        // salvo il codice di conferma generato casualmente
         Random rnd = new Random();
         string rndCodice = rnd.Next(100000, 999999).ToString();
 
+        // inserisco nella tab utenti l'email e rndCodice
+        u.email = mail;
+        u.password = CRYPTA.Crypta(rndCodice.ToString());
+        u.Insert();
+
+        // mando l'email di conferma
         MAIL m = new MAIL();
         m.mailUtente = mail;
         m.rndCodice = rndCodice;
 
-        m.mailInvia();
+        try
+        {
+            m.mailInvia();
+        }
 
-        // inserisco nella tab utenti l'email e rndCodice
-        u.email = mail;
-        u.password = rndCodice.ToString();
-        u.Insert();
+        catch
+        {
+            ScriptManager.RegisterClientScriptBlock(this, GetType(), "ATTENZIONE", "alert('Errore nell'invio dell'email. Segnati il tuo codice temporaneo: '" + rndCodice + "')", true);
+            return;
+        }
 
-        // reindirizzo l'utente alla pagina di conferma passandogli il codice generato randomicamente e l'email
-        Response.Redirect("registrazione_conferma.aspx?email=" + mail +"&rndCodice=" + CRYPTA.Crypta(rndCodice));
+        ScriptManager.RegisterClientScriptBlock(this, GetType(), "ATTENZIONE", "alert('Controlla il tuo indirizzo di posta elettronica per recuperare il tuo codice provvisorio!')", true);
+        return;
     }
 }
