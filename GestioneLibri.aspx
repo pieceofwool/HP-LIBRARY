@@ -51,7 +51,7 @@
                 return false;
             });
 
-            $('#btnModifica').click(function () {
+            $('#btnElimina').click(function () {
                 var url = '/Popups/Elimina/Libri.aspx';
                 var dialog = $('<iframe src="' + url + '" frameborder="0"></iframe>').appendTo('body');
 
