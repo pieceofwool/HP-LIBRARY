@@ -153,6 +153,17 @@ public class LIBRI
         CONNESSIONE conn = new CONNESSIONE();
         conn.EseguiCmd(cmd);
     }
+    /// <summary>
+    /// Annulla prenotazione
+    /// </summary>
+    public void AnnullaPrenotazione()
+    {
+        SqlCommand cmd = new SqlCommand("LIBRI_ANNULLAPRENOTAZIONE");
+        cmd.Parameters.AddWithValue("@codLibro", codLibro);
+
+        CONNESSIONE conn = new CONNESSIONE();
+        conn.EseguiCmd(cmd);
+    }
 
     #endregion
 

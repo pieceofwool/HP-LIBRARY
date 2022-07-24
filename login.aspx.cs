@@ -34,7 +34,8 @@ public partial class login : System.Web.UI.Page
         {
             int codiceUtente = u.RecuperaCodUtente();
             Session["tipoUtente"] = u.RecuperaTipoUtente(codiceUtente);
-            Response.Redirect("default.aspx");
+            Response.Redirect("GestioneLibri.aspx");
+            Session["CodiceUtente"] = codiceUtente;
         }
 
         else

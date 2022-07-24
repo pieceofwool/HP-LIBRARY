@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-
+    <link href="css/stile.css" rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 
@@ -18,11 +18,36 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+    <div id="container">
+        <%-- barra di navigazione --%>
+        <div id="navbar">
+            <div id="navbarlogo">
+                <a href="CatalogoLibri.aspx"><img id="logo" src="img/logo.png" /></a>
+            </div>
+            <div id="navbarpulsanti">
+                <%-- menu dinamico che aggiunge il pulsante "gestione utenti" se l'utente è A o S --%>
+                <asp:Literal ID="ltlUtenti" runat="server"></asp:Literal><a class="pulsantino" href="GestioneLibri.aspx">GESTIONE LIBRI</a> <a class="pulsantino" href="CatalogoLibri.aspx">CATALOGO LIBRI</a> <a href="LibriNoleggiati.aspx" class="pulsantinoultimo">LIBRI NOLEGGIATI</a>
+            </div>
         </div>
-    </form>
+        <%-- avvertimento che appare superati i 90 gg di prestito --%>
+        <asp:Literal ID="litAvvertimento" runat="server"></asp:Literal>
+
+        <%-- contenuto della pagina --%>
+        <div id="contenuto">
+            <form id="form1" runat="server">
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </form>
+        </div>
+        <%-- footer --%>
+        <div id="footer">Copyright © 2022 Human & People S.r.l.</div>
+    </div>
 </body>
 </html>
+
+
+
+
+
