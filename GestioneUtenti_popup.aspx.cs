@@ -14,7 +14,19 @@ public partial class GestioneUtenti_popup : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            int codUtente = int.Parse(Session["codUtente"].ToString()); 
+            int codUtente = int.Parse(Session["codUtente"].ToString());
+
+            if (codUtente == 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ATTENZIONE", "alert('ATTENZIONE: Selezionare una riga da modificare nella tabella!')", true);
+                return;
+            }
+
+            else
+            {
+                codUtente = int.Parse(Session["codUtente"].ToString());
+            }
+
             DataTable dt = new DataTable();
             dt = u.Select(codUtente);
 
@@ -70,7 +82,7 @@ public partial class GestioneUtenti_popup : System.Web.UI.Page
         {
             u.tipoUtente = "A";
         }
-        
+
         if (rbtnUser.Checked == true)
         {
             u.tipoUtente = "U";
