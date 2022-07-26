@@ -67,7 +67,6 @@
     color: #fff;
     padding: 5px 5px 5px 7px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.07);
-
     border-radius: 2px;
 }
 
@@ -93,28 +92,38 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.07);
 }
 
-.headergrid {
+/*CSS pagina Login*/
+#sfondologin {
     background-color: #d6d7d7;
-    font-weight: initial;
 }
 
-.div {
-    font-size: 18px;
+#login {
+    background-color: #f3f5f5;
+    font-family: Calibri;
+    font-size: 17px;
+    width: 400px;
+    height: 373px;
+    margin: 150px auto;
+    border-radius: 2px;
+    padding: 25px;
     text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.07);
 }
 
-.griglia {
-    margin-left: auto;
-    margin-right: auto;
-    border-color: #d6d7d7;
+#titolologin {
+    text-align: center;
+    color: #8f9191;
+    font-weight: 400;
+    font-size: 32px;
+    font-family: Tahoma;
 }
 
-.titolo {
-    font-weight: normal;
-    font-size: 24px;
+#tabellalogin {
+    margin: 0 40px;
+    text-align: left;
 }
 
-.button-8 {
+.pulsantilogin {
     background-color: #d6d7d7;
     border-radius: 3px;
     border: none;
@@ -127,6 +136,12 @@
     font-size: 13px;
     font-weight: 400;
     line-height: 1.15385;
+    margin: 0 0 20px 0;
+    height: 39px;
+    width: 313px;
+}
+
+.button-8 {
     margin: 0;
     outline: none;
     padding: 8px .8em;
@@ -138,6 +153,23 @@
     touch-action: manipulation;
     vertical-align: baseline;
     white-space: nowrap;
+}
+
+.boxTesto {
+    width: 156%;
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    border-style: none;
+    border-radius: 5px;
+}
+
+#preg {
+    font-size: 15px;
+}
+
+#login a {
+    text-decoration: none;
+    color: #8f9191;
 }
 
 .button-griglia {
@@ -196,3 +228,23 @@ input:disabled {
     white-space: nowrap;
 }
 
+.headergrid {
+    background-color: #d6d7d7;
+    font-weight: initial;
+}
+
+.div {
+    font-size: 18px;
+    text-align: center;
+}
+
+.griglia {
+    margin-left: auto;
+    margin-right: auto;
+    border-color: #d6d7d7;
+}
+
+.titolo {
+    font-weight: normal;
+    font-size: 24px;
+}

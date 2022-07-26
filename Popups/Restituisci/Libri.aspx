@@ -14,11 +14,11 @@
             <asp:Label ID="lbl" runat="server"></asp:Label>
             <table runat="server" id="tabella">
                 <tr>
-                    <td>Annullare il prestito selezionato?</td>
+                    <td>Restituire il libro selezionato?</td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="btnAnnulla" runat="server" Text="Elimina" OnClick="btnAnnulla_Click" />
+                        <asp:Button ID="btnAnnulla" runat="server" Text="Restituisci" OnClick="btnAnnulla_Click" />
                     </td>
                 </tr>
             </table>

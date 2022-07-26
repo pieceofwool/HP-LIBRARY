@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="LibriNoleggiati.aspx.cs" Inherits="Default2" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="LibriNoleggiati.aspx.cs" Inherits="Default2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <title>Gestione Libri</title>
+    <title>Libri Noleggiati</title>
 
     <script type="text/javascript">
         $(document).ready(function () {
