@@ -13,6 +13,8 @@ public partial class Default2 : System.Web.UI.Page
         UTENTI u = new UTENTI();
         griglia.DataSource = u.Select();
         griglia.DataBind();
+
+        Session["codUtente"] = "0";
     }
 
     protected void btnAggiorna_Click(object sender, EventArgs e)
@@ -42,6 +44,10 @@ public partial class Default2 : System.Web.UI.Page
             griglia.DataSource = u.Select();
             griglia.DataBind();
         }
+
+        GridViewRow row = griglia.SelectedRow;
+        string codUtente = griglia.SelectedDataKey[0].ToString();
+
     }
 
     protected void griglia_SelectedIndexChanged(object sender, EventArgs e)
