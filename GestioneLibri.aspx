@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="GestioneLibri.aspx.cs" Inherits="_Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <title>Gestione Libri</title>
 
     <script type="text/javascript">
@@ -77,20 +77,29 @@
     </script>
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:Button runat="server" Text="Inserisci Libro" ID="btnInserisci" ClientIDMode="Static" />
-    <asp:Button runat="server" Text="Modifica Libro" ID="btnModifica" ClientIDMode="Static" Enabled="False" />
-    <asp:Button runat="server" Text="Elimina Libro" ID="btnElimina" ClientIDMode="Static" Enabled="False" />
-    <asp:Button ID="btnAggiorna" runat="server" Text="Aggiorna Griglia" OnClick="btnAggiorna_Click" />
 
-    <asp:GridView runat="server" ID="grdLibri" AutoGenerateColumns="False" DataKeyNames="codLibro" OnSelectedIndexChanged="grdLibri_SelectedIndexChanged">
-        <Columns>
-            <asp:BoundField DataField="codLibro" HeaderText="codLibro" Visible="False" />
-            <asp:BoundField DataField="titolo" HeaderText="Titolo" />
-            <asp:BoundField DataField="autore" HeaderText="Autore" />
-            <asp:BoundField DataField="genere" HeaderText="Genere" />
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
-        </Columns>
-    </asp:GridView>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="div">
+        <h4 class="titolo">GESTIONE LIBRI</h4>
+        <asp:Button ID="btnAggiorna" runat="server" class="button-8" Text="Aggiorna Griglia" OnClick="btnAggiorna_Click" />
+        <asp:Button runat="server" class="button-8" Text="Inserisci Libro" ID="btnInserisci" ClientIDMode="Static" />
+        <asp:Button runat="server" class="button-8" Text="Modifica Libro" ID="btnModifica" ClientIDMode="Static" Enabled="False" />
+        <asp:Button runat="server" class="button-8" Text="Elimina Libro" ID="btnElimina" ClientIDMode="Static" Enabled="False" />
+
+        <br />
+        <br />
+
+        <asp:GridView runat="server" ID="grdLibri" class="griglia" AutoGenerateColumns="False" DataKeyNames="codLibro" OnSelectedIndexChanged="grdLibri_SelectedIndexChanged">
+            <Columns>
+                <asp:BoundField DataField="codLibro" HeaderText="codLibro" Visible="False" />
+                <asp:BoundField DataField="titolo" HeaderText="Titolo" />
+                <asp:BoundField DataField="autore" HeaderText="Autore" />
+                <asp:BoundField DataField="genere" HeaderText="Genere" />
+                <asp:CommandField ButtonType="Button" ControlStyle-CssClass="button-griglia" ShowSelectButton="True" />
+            </Columns>
+            <HeaderStyle />
+            <HeaderStyle CssClass="headergrid" />
+        </asp:GridView>
+    </div>
 </asp:Content>
 

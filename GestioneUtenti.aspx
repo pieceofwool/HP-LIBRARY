@@ -8,77 +8,68 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
 
-    <script type="text/javascript">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#btnModifica').click(function () {
+                    var url = 'GestioneUtenti_popup.aspx';
+                    var dialog = $('<iframe src="' + url + '" frameborder="0"></iframe>').appendTo('body');
 
-        // nel momento in cui la pagina è pronta devi tenere pronte anche le seguenti funzioni
-        $(document).ready(function () {
+                    dialog.dialog({
+                        modal: true,
+                        title: 'Modifica dati',
+                        resizable: false,
+                        width: 400,
+                        height: 230,
+                        overlay: {
+                            opacity: 0.9,
+                            background: 'black'
+                        },
 
-            $('#popup').click(function () {
+                        open: function (type, data) {
+                            $(this).parent().appendTo('form');
+                        }
+                    });
 
-                var url = 'GestioneUtenti_popup.aspx';
-                var dialog = $('<iframe src="' + url + '"frameborder="0"</iframe>').appendTo('body');
-
-                dialog.dialog({
-
-                    modal: true,
-                    title: 'Modifica dati',
-                    resizable: false,
-                    width: '400px',
-                    overlay: { opacity: 0.9, background: 'black' },
-                    open: function (type, data) { $(this).parent().appendTo('form'); }
-
+                    return false;
                 });
-                return false;
+
             });
 
-        });
-    </script>
+        </script>
 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
+    <div class="div">
+        <h4 class="titolo">GESTIONE UTENTI</h4>
 
-    <h1>GESTIONE UTENTI</h1>
+        <asp:CheckBox ID="checkAbilitati" runat="server" Text="Utenti Abilitati" Checked="True" />
+        <asp:CheckBox ID="checkNonAbilitati" runat="server" Text="Utenti Non abilitati" Checked="True" />
 
-    <asp:Label ID="lblFiltri" runat="server" Text="Filtri:  "></asp:Label>
-    <asp:CheckBox ID="checkAbilitati" runat="server" Text="Utenti Abilitati" Checked="True" />
-    <asp:CheckBox ID="checkNonAbilitati" runat="server" Text="Utenti Non abilitati" Checked="True" />
+        <br />
+        <br />
 
-    <br />
-    <br />
+        <asp:Button ID="btnAggiorna" class="button-8" runat="server" Text="Aggiorna Griglia" OnClick="btnAggiorna_Click" />
 
-    <asp:Button ID="btnAggiorna" runat="server" Text="Aggiorna Griglia" OnClick="btnAggiorna_Click" />
+        <asp:Button runat="server" Text="Modifica dati utente" class="button-8" ID="btnModifica" ClientIDMode="Static" Enabled="False"/>
 
-    <br />
-    <br />
+        <br />
+        <br />
 
-    <a href="GestioneUtenti_popup.aspx" id="popup">Modifica i dati selezionati</a>
-
-    <br />
-    <br />
-
-    <asp:GridView ID="griglia" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="griglia_SelectedIndexChanged" DataKeyNames="codUtente" CellPadding="4" ForeColor="#333333" GridLines="None">
-        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-        <Columns>
-            <asp:BoundField DataField="codUtente" Visible="false" />
-            <asp:BoundField DataField="tipoUtente" HeaderText="Tipo di utente" />
-            <asp:CheckBoxField DataField="abilitato" HeaderText="Abilitato" ReadOnly="True" />
-            <asp:BoundField DataField="email" HeaderText="Email" />
-            <asp:BoundField DataField="password" Visible="false" />
-            <asp:ButtonField ButtonType="Button" CommandName="Select" HeaderText="Seleziona" ShowHeader="True" Text="Seleziona" />
-        </Columns>
-        <EditRowStyle BackColor="#999999" />
-        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-    </asp:GridView>
+        <asp:GridView ID="griglia" class="griglia" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="griglia_SelectedIndexChanged" DataKeyNames="codUtente">
+            <Columns>
+                <asp:BoundField DataField="codUtente" Visible="false" />
+                <asp:BoundField DataField="tipoUtente" HeaderText="Tipo di utente" />
+                <asp:CheckBoxField DataField="abilitato" HeaderText="Abilitato" ReadOnly="True" />
+                <asp:BoundField DataField="email" HeaderText="Email" />
+                <asp:BoundField DataField="password" Visible="false" />
+                <asp:ButtonField ButtonType="Button" ControlStyle-CssClass="button-griglia" CommandName="Select" HeaderText="" ShowHeader="True" Text="Seleziona" />
+            </Columns>
+            <HeaderStyle />
+            <HeaderStyle CssClass="headergrid" />
+        </asp:GridView>
+    </div>
 
 </asp:Content>
 

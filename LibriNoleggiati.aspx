@@ -33,18 +33,28 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:Button runat="server" Text="Restituisci Libro" ID="btnRestituisci" ClientIDMode="Static" />
+    <div class="div">
+        <h4 class="titolo">LIBRI NOLEGGIATI</h4>
 
-    <asp:Button ID="btnAggiorna" runat="server" Text="Aggiorna Griglia" OnClick="btnAggiorna_Click" />
+        <asp:Button ID="btnAggiorna" class="button-8" runat="server" Text="Aggiorna Griglia" OnClick="btnAggiorna_Click" />
 
-    <asp:GridView runat="server" ID="grdLibriPrestito" AutoGenerateColumns="False" DataKeyNames="codLibro" OnSelectedIndexChanged="grdLibriPrestito_SelectedIndexChanged">
-        <Columns>
-            <asp:BoundField DataField="codLibro" HeaderText="codLibro" Visible="False" />
-            <asp:BoundField DataField="titolo" HeaderText="Titolo" />
-            <asp:BoundField DataField="autore" HeaderText="Autore" />
-            <asp:BoundField DataField="dataprestito" HeaderText="Data Prestito" />
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
-        </Columns>
-    </asp:GridView>
+        <asp:Button runat="server" Text="Restituisci Libro" class="button-8" ID="btnRestituisci" ClientIDMode="Static" Enabled="False" />
+
+
+        <br />
+        <br />
+
+        <asp:GridView runat="server" class="griglia" ID="grdLibriPrestito" AutoGenerateColumns="False" DataKeyNames="codLibro" OnSelectedIndexChanged="grdLibriPrestito_SelectedIndexChanged">
+            <Columns>
+                <asp:BoundField DataField="codLibro" HeaderText="codLibro" Visible="False" />
+                <asp:BoundField DataField="titolo" HeaderText="Titolo" />
+                <asp:BoundField DataField="autore" HeaderText="Autore" />
+                <asp:BoundField DataField="dataprestito" HeaderText="Data Prestito" />
+                <asp:CommandField ButtonType="Button" ControlStyle-CssClass="button-griglia" ShowSelectButton="True" />
+            </Columns>
+            <HeaderStyle />
+            <HeaderStyle CssClass="headergrid" />
+        </asp:GridView>
+    </div>
 </asp:Content>
 
