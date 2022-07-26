@@ -66,7 +66,6 @@
     color: #fff;
     padding: 5px 5px 5px 7px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.07);
-
     border-radius: 2px;
 }
 
@@ -90,4 +89,80 @@
     color: #171b1b;
     border-radius: 2px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.07);
+}
+
+
+/*CSS pagina Login*/
+#sfondologin {
+    background-color: #d6d7d7;
+}
+
+#login {
+    background-color: #f3f5f5;
+    font-family: Calibri;
+    font-size: 17px;
+    width: 400px;
+    height: 373px;
+    margin: 150px auto;
+    border-radius: 2px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.07);
+}
+
+#titolologin {
+    text-align: center;
+    color: #8f9191;
+    font-weight: 400;
+    font-size: 32px;
+    font-family: Tahoma;
+}
+
+#tabellalogin {
+    margin: 0 40px;
+    text-align: left;
+}
+
+.pulsantilogin {
+    background-color: #d6d7d7;
+    border-radius: 3px;
+    border: none;
+    box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #171b1b;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0 0 20px 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+    height: 39px;
+    width: 313px;
+}
+
+.boxTesto {
+    width: 156%;
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    border-style: none;
+    border-radius: 5px;
+}
+
+#preg {
+    font-size: 15px;
+}
+#login a {
+    text-decoration: none;
+    color: #8f9191;
 }

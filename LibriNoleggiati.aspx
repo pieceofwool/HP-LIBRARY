@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="LibriNoleggiati.aspx.cs" Inherits="Default2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <title>Gestione Libri</title>
+    <title>Libri Noleggiati</title>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -33,7 +33,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:Button runat="server" Text="Restituisci Libro" ID="btnRestituisci" ClientIDMode="Static" />
+    <asp:Button runat="server" Text="Restituisci Libro" ID="btnRestituisci" ClientIDMode="Static"  Enabled="False" />
 
     <asp:Button ID="btnAggiorna" runat="server" Text="Aggiorna Griglia" OnClick="btnAggiorna_Click" />
 
