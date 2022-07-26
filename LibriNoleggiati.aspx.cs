@@ -22,7 +22,7 @@ public partial class Default2 : System.Web.UI.Page
 
     void CaricaGriglia()
     {
-        //    grdLibriPrestito.DataSource = new LIBRI().SelectByUtente(int.Parse(Session["CodiceUtente"].ToString()));
-        //    grdLibriPrestito.DataBind();
+        grdLibriPrestito.DataSource = new LIBRI().SelectByUtente(int.Parse(Session["CodiceUtente"].ToString()));
+        grdLibriPrestito.DataBind();
     }
 }

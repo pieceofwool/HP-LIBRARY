@@ -22,26 +22,37 @@ public partial class MasterPage : System.Web.UI.MasterPage
         ltlUtenti.Text = t;
 
         ////controllo che non ci siano libri prenotati da più di 90 gg
-        //LIBRI L = new LIBRI();
-        //string CodiceUtente = Session["CodiceUtente"].ToString();
-        //int CodUtente = int.Parse(CodiceUtente);
-        //DataTable dt = new DataTable();
-        //dt = L.SelectByUtente(CodUtente);
+                
+        LIBRI L = new LIBRI();
+        string CodiceUtente = Session["CodiceUtente"].ToString();
+        int CodUtente = int.Parse(CodiceUtente);
+        DataTable dt = new DataTable();
+        dt = L.SelectByUtente(CodUtente);
 
         //DateTime date = DateTime.Now;
         //int i = 0;
-        //for (i = 0; i < dt.Rows.Count; i++)
-        //{
-        //    SqlDateTime prestito = new SqlDateTime();
-        //    prestito = (SqlDateTime)dt.Rows[i]["dataPrestito"];
-        //    TimeSpan diff = date.Subtract((DateTime)prestito);
-        //    string mesidiff = (diff.ToString()).Substring(3, 2);
+        bool InRitardo=false;
+        foreach (DataRow riga in dt.Rows)
+        //(i = 0; i < dt.Rows.Count; i++)
+        {
+            //    //SqlDateTime prestito = new SqlDateTime();
+            //    //prestito = (SqlDateTime)dt.Rows[i]["dataPrestito"];
+            //    //TimeSpan diff = date.Subtract((DateTime)dataPrestito);
+            //    //string mesidiff = (diff.ToString()).Substring(3, 2);
+            //    //if (int.Parse(mesidiff) > 2)
 
-        //    if (int.Parse(mesidiff) > 2)
-        //    {
-        //        litAvvertimento.Text = "<div id='avvertimento'><span>ATTENZIONE! Uno dei tuoi libri è in prestito da più di 90 giorni. Ti preghiamo di restituirlo al più presto!</span></div>";
-        //    }
-        //}
+
+            //DateTime dataPrestito = dt.Rows[0].Field<DateTime>("dataPrestito");
+
+            int codLibro = riga.Field<int>("codlibro");
+            L.codLibro = codLibro;
+            InRitardo = L.InRitardo();
+        }
+        if (InRitardo==true)
+            {
+                litAvvertimento.Text = "<div id='avvertimento'><span>ATTENZIONE! Uno dei tuoi libri è in prestito da più di 90 giorni. Ti preghiamo di restituirlo al più presto!</span></div>";
+            }
+        else { litAvvertimento.Text = ""; }
 
     }
 }

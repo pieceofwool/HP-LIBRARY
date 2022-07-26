@@ -10,7 +10,7 @@ using System.Web;
 /// </summary>
 public class LIBRI
 {
-    int codLibro;
+    public int codLibro;
     int codUtente;
     string titolo;
     string autore;
@@ -153,17 +153,17 @@ public class LIBRI
         CONNESSIONE conn = new CONNESSIONE();
         conn.EseguiCmd(cmd);
     }
-    /// <summary>
-    /// Annulla prenotazione
-    /// </summary>
-    public void AnnullaPrenotazione()
-    {
-        SqlCommand cmd = new SqlCommand("LIBRI_ANNULLAPRENOTAZIONE");
-        cmd.Parameters.AddWithValue("@codLibro", codLibro);
+    ///// <summary>
+    ///// Annulla prenotazione
+    ///// </summary>
+    //public void AnnullaPrenotazione()
+    //{
+    //    SqlCommand cmd = new SqlCommand("LIBRI_ANNULLAPRENOTAZIONE");
+    //    cmd.Parameters.AddWithValue("@codLibro", codLibro);
 
-        CONNESSIONE conn = new CONNESSIONE();
-        conn.EseguiCmd(cmd);
-    }
+    //    CONNESSIONE conn = new CONNESSIONE();
+    //    conn.EseguiCmd(cmd);
+    //}
 
     #endregion
 
@@ -195,7 +195,7 @@ public class LIBRI
     }
 
     /// <summary>
-    /// Determina se il libro è stato nolegiatto da più di 90 gg
+    /// Determina se il libro è stato noleggiato da più di 90 gg
     /// </summary>
     /// <returns></returns>
     public bool InRitardo()

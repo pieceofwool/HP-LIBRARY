@@ -30,7 +30,7 @@ public partial class Popups_Restituisci_Default : System.Web.UI.Page
         }
 
         // Elimino il record
-        new LIBRI(int.Parse(Session["codLibro"].ToString())).AnnullaPrenotazione();
+        new LIBRI(int.Parse(Session["codLibro"].ToString())).Restituisci();
 
         // Operazioni di pulizia
         Session["codLibro"] = null;
