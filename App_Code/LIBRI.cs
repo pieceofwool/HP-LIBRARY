@@ -104,7 +104,17 @@ public class LIBRI
 
         return C.EseguiSelect(cmd);
     }
+    /// <summary>
+    /// RicercaGenere
+    /// </summary>
+    public DataTable SelectGenere(string genere)
+    {
+        SqlCommand cmd = new SqlCommand("LIBRI_RICERCA_GENERE");
+        cmd.Parameters.AddWithValue("@ricerca", genere);
 
+        CONNESSIONE conn = new CONNESSIONE();
+        return conn.EseguiSelect(cmd);
+    }
     #endregion
 
     #region OPERATORI
@@ -200,9 +210,13 @@ public class LIBRI
     /// <returns></returns>
     public bool InRitardo()
     {
-        DateTime dataPrestito = Select(codLibro).Rows[0].Field<DateTime>("dataPrestito");
+        DateTime dataPrestito = DateTime.Parse(Select(codLibro).Rows[0]["dataPrestito"].ToString());
         return (DateTime.Now - dataPrestito).Days > 90;
     }
-
+    public bool Disponibile(int codLibro)
+    {
+        DataTable libro = Select(codLibro);
+        return libro.Rows[0]["codUtente"].ToString() == "";
+    }
     #endregion
 }
