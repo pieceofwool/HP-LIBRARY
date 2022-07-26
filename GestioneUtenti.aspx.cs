@@ -44,15 +44,13 @@ public partial class Default2 : System.Web.UI.Page
             griglia.DataSource = u.Select();
             griglia.DataBind();
         }
-
-        GridViewRow row = griglia.SelectedRow;
-        string codUtente = griglia.SelectedDataKey[0].ToString();
-
     }
 
     protected void griglia_SelectedIndexChanged(object sender, EventArgs e)
     {
         GridViewRow row = griglia.SelectedRow;
         Session["codUtente"] = griglia.SelectedDataKey[0].ToString();
+
+        btnModifica.Enabled = true;
     }
 }
