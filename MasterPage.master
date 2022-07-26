@@ -26,7 +26,7 @@
             </div>
             <div id="navbarpulsanti">
                 <%-- menu dinamico che aggiunge il pulsante "gestione utenti" se l'utente è A o S --%>
-                <asp:Literal ID="ltlUtenti" runat="server"></asp:Literal><a class="pulsantino" href="GestioneLibri.aspx">GESTIONE LIBRI</a> <a class="pulsantino" href="CatalogoLibri.aspx">CATALOGO LIBRI</a> <a href="LibriNoleggiati.aspx" class="pulsantinoultimo">LIBRI NOLEGGIATI</a>
+                <asp:Literal ID="ltlUtenti" runat="server"></asp:Literal><a class="pulsantino" href="GestioneLibri.aspx">GESTIONE LIBRI</a> <a class="pulsantino" href="Catalogo.aspx">CATALOGO LIBRI</a> <a href="LibriNoleggiati.aspx" class="pulsantinoultimo">LIBRI NOLEGGIATI</a>
             </div>
         </div>
         <%-- avvertimento che appare superati i 90 gg di prestito --%>
