@@ -144,6 +144,8 @@
 .button-8 {
     margin: 0;
     outline: none;
+    border: none;
+    background-color: #d6d7d7;
     padding: 8px .8em;
     position: relative;
     text-align: center;
