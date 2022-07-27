@@ -44,6 +44,13 @@ public partial class Default2 : System.Web.UI.Page
             griglia.DataSource = u.Select();
             griglia.DataBind();
         }
+
+        // 4. Senza check in entrambi i filtri non faccio vedere nulla
+        if (checkAbilitati.Checked == false & checkNonAbilitati.Checked == false)
+        {
+            griglia.DataSource = null;
+            griglia.DataBind();
+        }
     }
 
     protected void griglia_SelectedIndexChanged(object sender, EventArgs e)

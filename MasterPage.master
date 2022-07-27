@@ -22,7 +22,7 @@
         <%-- barra di navigazione --%>
         <div id="navbar">
             <div id="navbarlogo">
-                <a href="CatalogoLibri.aspx"><img id="logo" src="img/logo.png" /></a>
+                <a href="Catalogo.aspx"><img id="logo" src="img/logo.png" /></a>
             </div>
             <div id="navbarpulsanti">
                 <%-- menu dinamico che aggiunge il pulsante "gestione utenti" se l'utente è A o S --%>
